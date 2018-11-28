@@ -3,7 +3,13 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "backpack build",
+    "start": "yarn run build && node ./build/main.js",
+    "watch": "backpack"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "backpack-core": "^0.8.2",
+    "express": "^4.16.4"
+  }
 }
