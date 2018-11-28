@@ -30,5 +30,8 @@ server
       res.json(error)
     }
   })
+  .use('/*', (req, res, next) => {
+    res.redirect('/')
+  })
 
 export default server
