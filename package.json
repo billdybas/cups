@@ -6,16 +6,19 @@
     "node": "10.x"
   },
   "scripts": {
-    "build": "backpack build",
-    "start": "node ./build/main.js",
-    "watch": "backpack",
+    "start": "razzle start",
+    "build": "razzle build",
+    "start:prod": "NODE_ENV=production node build/server.js",
     "migrate": "knex-migrate up",
     "postinstall": "yarn run build"
   },
   "license": "MIT",
   "dependencies": {
-    "backpack-core": "^0.8.2",
     "express": "^4.16.4",
+    "razzle": "^2.4.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "knex": "^0.15.2",
     "knex-migrate": "^1.7.0",
     "pg": "^7.6.1"

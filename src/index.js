@@ -1,12 +1,26 @@
-const express = require('express')
-const knex = require('knex')
+import app from './server';
+import http from 'http';
 
-const PORT = process.env.PORT || 3000
+const server = http.createServer(app);
 
-const app = express()
+let currentApp = app;
 
-app.use('/', (req, res, next) => {
-  res.json({ hello: 'world' })
-})
+server.listen(process.env.PORT || 3000, error => {
+  if (error) {
+    console.log(error);
+  }
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`))
+  console.log('🚀 Started!');
+});
+
+if (module.hot) {
+  console.log('✅  Server-side HMR Enabled!');
+
+  module.hot.accept('./server', () => {
+    console.log('🔁  HMR Reloading `./server`...');
+    server.removeListener('request', currentApp);
+    const newApp = require('./server').default;
+    server.on('request', newApp);
+    currentApp = newApp;
+  });
+}
