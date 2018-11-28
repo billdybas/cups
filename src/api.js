@@ -23,6 +23,11 @@ router.get('/cups', async (req, res, next) => {
 })
 
 router.post('/cups.create', async (req, res, next) => {
+  const secret = req.header('X-Cups-Secret')
+  if (secret !== process.env.CUPS_SECRET) {
+    return req.status(401).send('Unauthorized')
+  }
+
   await db.withSchema('app')
     .from('cups')
     .insert({})
