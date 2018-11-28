@@ -1,8 +1,9 @@
 {
   "name": "cups",
+  "private": true,
   "version": "0.0.1",
   "engines": {
-    "node": "8.x"
+    "node": "10.x"
   },
   "scripts": {
     "build": "backpack build",
