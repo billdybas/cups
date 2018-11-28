@@ -34,7 +34,7 @@ class Cups extends React.Component {
     return (
       <Container>
         <H1>
-          Bill has drunk {count} cups of coffee ☕️ this year.
+          Bill has drunk {count} cup{count !== 1 ? 's' : ''} of coffee ☕️ this year.
         </H1>
       </Container>
     )
