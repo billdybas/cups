@@ -10,6 +10,7 @@
     "build": "razzle build",
     "start:prod": "NODE_ENV=production node build/server.js",
     "migrate": "knex-migrate up",
+    "migrate:prod": "NODE_ENV=production knex-migrate up",
     "postinstall": "yarn run build"
   },
   "license": "MIT",
