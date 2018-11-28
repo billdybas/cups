@@ -1,7 +1,9 @@
 {
   "name": "cups",
   "version": "0.0.1",
-  "main": "index.js",
+  "engines": {
+    "node": "8.x"
+  },
   "scripts": {
     "build": "backpack build",
     "start": "yarn run build && node ./build/main.js",
