@@ -9,11 +9,15 @@
     "build": "backpack build",
     "start": "node ./build/main.js",
     "watch": "backpack",
+    "migrate": "knex-migrate up",
     "postinstall": "yarn run build"
   },
   "license": "MIT",
   "dependencies": {
     "backpack-core": "^0.8.2",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "knex-migrate": "^1.7.0",
+    "pg": "^7.6.1"
   }
 }

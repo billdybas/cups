@@ -1,4 +1,5 @@
 const express = require('express')
+const knex = require('knex')
 
 const PORT = process.env.PORT || 3000
 
