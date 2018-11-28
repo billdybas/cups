@@ -16,7 +16,11 @@ const H1 = styled.h1`
 
 class Cups extends React.Component {
   static propTypes = {
-    count: PropTypes.number
+    count: PropTypes.number.isRequired
+  }
+
+  static defaultProps = {
+    count: 0
   }
 
   static async getInitialProps({ axios, API_URL }) {
@@ -26,8 +30,6 @@ class Cups extends React.Component {
 
   render () {
     const { count } = this.props
-
-    if (!count) return null
 
     return (
       <Container>

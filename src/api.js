@@ -32,4 +32,8 @@ router.post('/cups.create', async (req, res, next) => {
   return res.status(201).json({ success: true, count })
 })
 
+router.get('/*', (req, res, next) => {
+  res.redirect('/')
+})
+
 export default router
