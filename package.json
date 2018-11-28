@@ -11,7 +11,7 @@
     "start:prod": "NODE_ENV=production node build/server.js",
     "migrate": "knex-migrate up",
     "migrate:prod": "NODE_ENV=production knex-migrate up",
-    "postinstall": "yarn run build"
+    "heroku-postbuild": "yarn run build"
   },
   "license": "MIT",
   "dependencies": {
@@ -23,6 +23,7 @@
     "pg": "^7.6.1",
     "prop-types": "^15.6.2",
     "razzle": "^2.4.0",
+    "razzle-heroku": "^3.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
