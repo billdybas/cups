@@ -6,7 +6,6 @@ module.exports = {
       database: 'cups'
     },
     migrations: {
-      schemaName: 'knex',
       tableName: 'migrations'
     }
   },
@@ -18,7 +17,6 @@ module.exports = {
       max: 10
     },
     migrations: {
-      schemaName: 'knex',
       tableName: 'migrations'
     }
   }
