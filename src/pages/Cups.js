@@ -89,7 +89,7 @@ class Cups extends React.Component {
           </H1>
           <H1>{filter && `${filterCount} ${filterCount === 1 ? 'was' : 'were'} ${filter}.`}</H1>
         </Main>
-        {drinks.length && <H3>Filter by drink</H3>}
+        {drinks.length > 0 && <H3>Filter by drink</H3>}
         <Drinks>
           {drinks.map((drink, index) =>
             <Drink
