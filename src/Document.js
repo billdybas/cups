@@ -2,6 +2,8 @@ import React from 'react'
 import { AfterRoot, AfterData } from '@jaredpalmer/after'
 import { ServerStyleSheet } from 'styled-components'
 
+import { config } from './config'
+
 class Document extends React.Component {
   static async getInitialProps({ assets, data, renderPage }) {
     const sheet = new ServerStyleSheet()
@@ -32,6 +34,7 @@ class Document extends React.Component {
         <body {...bodyAttrs}>
           <AfterRoot />
           <AfterData data={data} />
+          <script dangerouslySetInnerHTML={{__html: `window.env = ${JSON.stringify(config)}`}}/>
           <script
             type="text/javascript"
             src={assets.client.js}
