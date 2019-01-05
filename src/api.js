@@ -8,7 +8,9 @@ const db = knex(knexfile[process.env.NODE_ENV || 'development'])
 const router = express.Router()
 
 // Accept 'application/json' request bodies
-router.use(express.json())
+router.use(express.json({ limit: '5mb' }))
+// Accept 'application/x-www-form-urlencoded' request bodies
+router.use(express.urlencoded({ extended: true, limit: '5mb' }))
 
 const countCups = async (name) => {
   const builder =
@@ -44,16 +46,26 @@ router.get('/cups', async (req, res, next) => {
 })
 
 router.get('/cups.filter', async (req, res, next) => {
-  const { name } = req.body
+  const { drink } = req.query
 
-  if (!name) {
-    res.status(400).send('Missing Name')
+  if (!drink) {
+    res.status(400).send('Missing Drink')
     return
   }
 
-  const count = await countCups(name)
+  const count = await countCups(drink)
 
   res.status(200).json({ count })
+  return
+})
+
+router.get('/drinks', async (req, res, next) => {
+  const rows = await db.withSchema('app')
+    .from('drinks')
+    .select('name')
+  const drinks = rows.map((row) => row.name)
+
+  res.status(200).json({ drinks })
   return
 })
 

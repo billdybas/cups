@@ -22,12 +22,13 @@ server
         routes,
         assets,
         document: Document,
-        axios,
-        API_URL: process.env.API_URL
       })
       res.send(html)
     } catch (error) {
-      res.json(error)
+      if (process.env.NODE_ENV === 'development') {
+        console.error(error)
+      }
+      res.send('Something went wrong.')
     }
   })
   .use('/*', (req, res, next) => {
