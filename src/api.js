@@ -1,5 +1,6 @@
 import express from 'express'
 import knex from 'knex'
+import cors from 'cors';
 
 import knexfile from '../knexfile'
 
@@ -7,6 +8,7 @@ const db = knex(knexfile[process.env.NODE_ENV || 'development'])
 
 const router = express.Router()
 
+router.use(cors());
 // Accept 'application/json' request bodies
 router.use(express.json({ limit: '5mb' }))
 // Accept 'application/x-www-form-urlencoded' request bodies
