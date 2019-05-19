@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import capitalize from 'lodash.capitalize'
 
 import { config } from '../config'
 
@@ -30,7 +29,7 @@ const Drinks = styled.section`
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 380px;
+  max-width: 464px;
 `
 
 const Drink = styled.p`
@@ -43,7 +42,7 @@ const Drink = styled.p`
   padding: 8px 24px;
   margin: 0 16px 24px;
   text-align: center;
-  min-width: 150px;
+  min-width: 200px;
 
   &:hover {
     background: #e0e0e0;
@@ -96,7 +95,7 @@ class Cups extends React.Component {
               key={index}
               onClick={() => this.handleFilterClick(drink)}
             >
-              {capitalize(drink)}
+              {drink}
             </Drink>
           )}
         </Drinks>
