@@ -1,22 +1,24 @@
-import React from 'react'
-import { AfterRoot, AfterData } from '@jaredpalmer/after'
-import { ServerStyleSheet } from 'styled-components'
+import React from 'react';
+import { AfterRoot, AfterData } from '@jaredpalmer/after';
+import { ServerStyleSheet } from 'styled-components';
 
-import { config } from './config'
+import { config } from './config';
 
 class Document extends React.Component {
   static async getInitialProps({ assets, data, renderPage }) {
-    const sheet = new ServerStyleSheet()
-    const page = await renderPage(App => props => sheet.collectStyles(<App {...props} />))
-    const styleTags = sheet.getStyleElement()
-    return { assets, data, ...page, styleTags }
+    const sheet = new ServerStyleSheet();
+    const page = await renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    return { assets, data, ...page, styleTags };
   }
 
   render() {
-    const { helmet, assets, data, styleTags } = this.props
+    const { helmet, assets, data, styleTags } = this.props;
 
-    const htmlAttrs = helmet.htmlAttributes.toComponent()
-    const bodyAttrs = helmet.bodyAttributes.toComponent()
+    const htmlAttrs = helmet.htmlAttributes.toComponent();
+    const bodyAttrs = helmet.bodyAttributes.toComponent();
 
     return (
       <html {...htmlAttrs}>
@@ -28,13 +30,21 @@ class Document extends React.Component {
           {helmet.title.toComponent()}
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}
-          <link rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter-ui.css" />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://rsms.me/inter/inter-ui.css"
+          />
           {styleTags}
         </head>
         <body {...bodyAttrs}>
           <AfterRoot />
           <AfterData data={data} />
-          <script dangerouslySetInnerHTML={{__html: `window.env = ${JSON.stringify(config)}`}}/>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.env = ${JSON.stringify(config)}`,
+            }}
+          />
           <script
             type="text/javascript"
             src={assets.client.js}
@@ -43,8 +53,8 @@ class Document extends React.Component {
           />
         </body>
       </html>
-    )
+    );
   }
 }
 
-export default Document
+export default Document;

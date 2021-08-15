@@ -7,4 +7,4 @@ export const config =
     : {
         // Server
         API_URL: process.env.API_URL,
-      }
+      };

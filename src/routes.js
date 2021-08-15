@@ -1,9 +1,9 @@
-import Cups from './pages/Cups'
+import Cups from './pages/Cups';
 
 export default [
   {
     path: '/',
     exact: true,
-    component: Cups
-  }
-]
+    component: Cups,
+  },
+];
