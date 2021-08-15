@@ -3,21 +3,26 @@ module.exports = {
     client: 'pg',
     connection: {
       user: 'postgres',
-      database: 'cups'
+      database: 'cups',
     },
     migrations: {
-      tableName: 'migrations'
-    }
+      tableName: 'migrations',
+    },
   },
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL,
+    connection: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'migrations'
-    }
-  }
-}
+      tableName: 'migrations',
+    },
+  },
+};
