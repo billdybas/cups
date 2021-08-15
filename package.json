@@ -22,7 +22,7 @@
     "express": "^4.16.4",
     "knex": "^0.21.21",
     "knex-migrate": "^1.7.0",
-    "pg": "^7.6.1",
+    "pg": "^8.7.1",
     "prop-types": "^15.6.2",
     "razzle": "^2.4.0",
     "razzle-heroku": "^3.0.0",
